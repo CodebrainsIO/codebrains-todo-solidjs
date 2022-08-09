@@ -27,9 +27,9 @@ const TodoList = () => {
   const toggleTodo = (todo) => {
     console.log("Todo to toggle", todo);
     todo.completed = !todo.completed;
-    updateTodo(todo).them(() => refresh());
+    updateTodo(todo).then(() => refresh());
   };
-  const handleRemoveTodo = (todo) => {
+  const removeTodo = (todo) => {
     console.log("Todo to remove", todo);
     deleteTodo(todo.id).then(() => refresh());
   };
@@ -64,7 +64,7 @@ const TodoList = () => {
             {(todo) => (
               <TodoItem
                 todo={todo}
-                removeTodo={handleRemoveTodo}
+                removeTodo={removeTodo}
                 toggleTodo={toggleTodo}
               />
             )}

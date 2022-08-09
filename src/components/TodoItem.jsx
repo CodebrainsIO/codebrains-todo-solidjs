@@ -6,19 +6,31 @@ import {
   Tr,
   Th,
   Td,
-  IconButton
+  IconButton,
 } from "@hope-ui/solid";
 import { createSignal, createEffect, onMount, For } from "solid-js";
-import { IoTrashBinSharp } from 'solid-icons/io'
+import { IoTrashBinSharp } from "solid-icons/io";
 
 const TodoItem = ({ todo, toggleTodo, removeTodo }) => {
   return (
     <Tr>
       <Td>{todo.title}</Td>
       <Td>
-        <Checkbox defaultChecked={todo.completed} colorScheme="success" />
+        <Checkbox
+          defaultChecked={todo.completed}
+          onChange={(e) =>
+            toggleTodo(todo)
+          }
+          colorScheme="success"
+        />
       </Td>
-      <Td><IconButton aria-label="Search" icon={<IoTrashBinSharp size={24} color="#000000"/>} /></Td>
+      <Td>
+        <IconButton
+          aria-label="Search"
+          onClick={() => removeTodo(todo)}
+          icon={<IoTrashBinSharp size={24} color="#000000" />}
+        />
+      </Td>
     </Tr>
   );
 };
