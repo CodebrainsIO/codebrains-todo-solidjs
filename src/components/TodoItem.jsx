@@ -27,6 +27,7 @@ const TodoItem = ({ todo, toggleTodo, removeTodo }) => {
       <Td>
         <IconButton
           aria-label="Search"
+          colorScheme="danger"
           onClick={() => removeTodo(todo)}
           icon={<IoTrashBinSharp size={24} color="#000000" />}
         />
